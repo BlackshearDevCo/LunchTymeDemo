@@ -1,0 +1,29 @@
+.header-container {
+  height: 60px;
+  width: 100vw;
+  background-color: #43E895;
+  color: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px 10px 15px;
+  z-index: 10; }
+  .header-container .header-title {
+    font-size: 1.7rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .header-container .web-page-actions img {
+    transform: translateX(-100vw);
+    transition: 0.2s ease-in-out; }
+    .header-container .web-page-actions img + img {
+      margin-left: 20px; }
+    .header-container .web-page-actions img.active {
+      transform: translateX(0vw); }
+  .header-container img {
+    width: 2.5rem;
+    height: 2.5rem; }
