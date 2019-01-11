@@ -1,0 +1,34 @@
+.navbar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #2a2a2a;
+  height: 50px;
+  width: 100vw;
+  color: #979797;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .navbar-container .navbar-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    color: #979797; }
+    .navbar-container .navbar-item .navbar-icon {
+      width: 25px;
+      height: 25px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.55; }
+      .navbar-container .navbar-item .navbar-icon.lunch {
+        background-image: url("../../images/tab_lunch@2x.png"); }
+      .navbar-container .navbar-item .navbar-icon.internets {
+        background-image: url("../../images/tab_internets@2x.png"); }
+    .navbar-container .navbar-item.active {
+      color: #FFF; }
+      .navbar-container .navbar-item.active .navbar-icon {
+        opacity: 1; }

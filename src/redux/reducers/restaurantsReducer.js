@@ -9,7 +9,7 @@ export default function restaurantsReducer(state = initialState, action) {
     case `${GET_RESTAURANTS}_FULFILLED`:
       return [...action.payload.data.restaurants];
     default:
-      return [];
+      return [...state];
   }
 };
 

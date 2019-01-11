@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
+import Navbar from './components/Navbar';
 import Home from './containers/Home';
+import Internets from './containers/Internets';
 import { getRestaurants } from './redux/reducers/restaurantsReducer';
 
 import './App.css';
 import './styles/css/main.css';
 import './styles/css/header.css';
+import './styles/css/navbar.css';
 import './styles/css/restaurant_preview.css';
+import './styles/css/restaurant_show.css';
 
 class App extends Component {
   componentDidMount() {
@@ -17,13 +21,14 @@ class App extends Component {
 
   render() {
     const { appReducer } = this.props;
-
+    console.log(appReducer);
     return (
       <div className="App">
         <Header />
         <section className="content-container">
-          <Home />
+          {appReducer.currentPage === 'lunch' ? <Home /> : <Internets />}
         </section>
+        <Navbar />
       </div>
     );
   }

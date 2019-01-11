@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changeRestaurant } from '../redux/reducers/appReducer';
 
-export default function RestaurantPreview({ restaurant }) {
+function RestaurantPreview({ restaurant, dispatch }) {
   return (
     <div className="restaurant-preview-container">
       <img
@@ -12,7 +14,14 @@ export default function RestaurantPreview({ restaurant }) {
         <h1 className="restaurant-preview-name">{restaurant.name}</h1>
         <h3 className="restaurant-preview-category">{restaurant.category}</h3>
       </section>
-      <div className="restaurant-preview-gradient" />
+      <div
+        className="restaurant-preview-gradient"
+        onClick={() => dispatch(changeRestaurant(restaurant))}
+      />
     </div>
   )
 }
+
+const mapStateToProps = state => ({ appReducer: state.appReducer });
+
+export default connect(mapStateToProps)(RestaurantPreview);
