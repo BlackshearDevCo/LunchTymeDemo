@@ -10,6 +10,8 @@
 
 .content-container {
   margin-top: 60px;
+  margin-bottom: 50px;
   min-height: calc(100vh - 60px);
   overflow: auto;
+  position: relative;
 }

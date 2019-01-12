@@ -25,5 +25,10 @@
     .header-container .web-page-actions img.active {
       transform: translateX(0vw); }
   .header-container img {
-    width: 2.5rem;
     height: 2.5rem; }
+    .header-container img.back-to-list {
+      position: absolute;
+      opacity: 0;
+      transition: 0.2s ease-in-out; }
+      .header-container img.back-to-list.active {
+        opacity: 1; }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeRestaurant } from '../redux/reducers/appReducer';
+import { changeRestaurant, toggleDetail } from '../redux/reducers/appReducer';
 
 function RestaurantPreview({ restaurant, dispatch }) {
   return (
@@ -16,7 +16,10 @@ function RestaurantPreview({ restaurant, dispatch }) {
       </section>
       <div
         className="restaurant-preview-gradient"
-        onClick={() => dispatch(changeRestaurant(restaurant))}
+        onClick={() => {
+          dispatch(changeRestaurant(restaurant))
+          dispatch(toggleDetail())
+        }}
       />
     </div>
   )

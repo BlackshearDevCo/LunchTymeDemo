@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component, Fragment } from 'react';
 import GoogleMapReact from 'google-map-react';
 import RestaurantInfoMarker from './RestaurantInfoMarker';
 
@@ -13,21 +12,23 @@ class RestaurantShow extends Component {
   }
 
   componentDidMount() {
-    const { currentRestaurant } = this.props.appReducer;
+    const { restaurant } = this.props;
 
     this.setState({
       center: {
-        lat: currentRestaurant.location.lat,
-        lng: currentRestaurant.location.lng,
+        lat: restaurant.location.lat,
+        lng: restaurant.location.lng,
       }
     })
   }
 
   render() {
-    const { currentRestaurant } = this.props.appReducer;
+    const { restaurant, showDetail } = this.props;
+
+    const { contact } = restaurant;
 
     return (
-      <div className="restaurant-content-container">
+      <div className={`restaurant-content-container ${showDetail ? 'active' : ''}`}>
         <div className="map-placeholder">
           <GoogleMapReact
             bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
@@ -41,24 +42,27 @@ class RestaurantShow extends Component {
           </GoogleMapReact>
         </div>
         <section className="restaurant-info-stripe">
-          <h1 className="restaurant-title">{currentRestaurant.name}</h1>
-          <h3 className="restaurant-category">{currentRestaurant.category}</h3>
+          <h1 className="restaurant-title">{restaurant.name}</h1>
+          <h3 className="restaurant-category">{restaurant.category}</h3>
         </section>
 
         <section className="restaurant-detail-container">
           <p>
-            {currentRestaurant.location.address}
+            {restaurant.location.address}
             <br />
-            {currentRestaurant.location.formattedAddress[1]}
+            {restaurant.location.formattedAddress[1]}
           </p>
-          <p>{currentRestaurant.contact.formattedPhone}</p>
-          <p>@{currentRestaurant.contact.twitter}</p>
+          {contact ? (
+            <Fragment>
+              <p>{contact.formattedPhone || 'No Contact Found'}</p>
+              {contact.twitter && <p>@{contact.twitter}</p>}
+              {contact.facebookName && <p>@{contact.facebookName}</p>}
+            </Fragment>
+          ) : <p>No contact info</p>}
         </section>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({ appReducer: state.appReducer })
-
-export default connect(mapStateToProps)(RestaurantShow);
+export default RestaurantShow;

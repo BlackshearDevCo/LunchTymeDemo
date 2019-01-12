@@ -15,7 +15,7 @@ export default function appReducer(state = initialState, action) {
       return { ...state, showDetail: !state.showDetail };
 
     case CHANGE_ROUTE:
-      return { ...state, currentPage: action.payload };
+      return { ...state, currentPage: action.payload, showDetail: false };
 
     case CHANGE_RESTAURANT:
       return { ...state, currentRestaurant: action.payload }

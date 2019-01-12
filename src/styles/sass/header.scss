@@ -39,11 +39,17 @@
   }
 
   img {
-    width: 2.5rem;
+    // width: 2.5rem;
     height: 2.5rem;
 
-    .map-icon {
-      
+    &.back-to-list {
+      position: absolute;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+
+      &.active {
+        opacity: 1;
+      }
     }
   }
 }

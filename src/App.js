@@ -22,7 +22,7 @@ class App extends Component {
 
   render() {
     const { appReducer } = this.props;
-    console.log(appReducer);
+
     return (
       <div className="App">
         <Header />
