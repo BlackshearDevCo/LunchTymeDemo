@@ -12,6 +12,7 @@ import './styles/css/header.css';
 import './styles/css/navbar.css';
 import './styles/css/restaurant_preview.css';
 import './styles/css/restaurant_show.css';
+import './styles/css/restaurant_info_marker.css';
 
 class App extends Component {
   componentDidMount() {

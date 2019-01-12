@@ -1,0 +1,11 @@
+@import './mixins';
+
+.restaurant-info-marker {
+  .lunchtyme-logo {
+    @include contain-background;
+    background-image: url('../../images/LunchTyme-logo.png');
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%); // Counteracts offset of marker being place off center
+  }
+}
