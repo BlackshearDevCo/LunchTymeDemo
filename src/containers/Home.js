@@ -5,7 +5,7 @@ import RestaurantShow from '../components/RestaurantShow';
 import WebMap from '../components/WebMap';
 
 function Home({ restaurants, appReducer }) {
-  const { currentRestaurant, showDetail, showFullMap, mapToggled } = appReducer;
+  const { currentRestaurant, showDetail, showFullMap } = appReducer;
   const restaurantList = restaurants.map((restaurant, ind) => (
     <RestaurantPreview restaurant={restaurant} key={ind} />
   ))
@@ -15,8 +15,8 @@ function Home({ restaurants, appReducer }) {
       <div className="restaurant-preview-list">
         {restaurantList}
       </div>
-      {currentRestaurant && <RestaurantShow showDetail={showDetail} restaurant={currentRestaurant} />}
-      {((showFullMap && restaurants[0]) || mapToggled) && <WebMap showFullMap={showFullMap} />}
+      <RestaurantShow showDetail={showDetail} restaurant={currentRestaurant} />
+      {restaurants[0] && <WebMap showFullMap={showFullMap} />}
     </Fragment>
   )
 }

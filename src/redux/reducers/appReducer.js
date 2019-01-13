@@ -2,9 +2,8 @@
 const initialState = {
   showDetail: false,
   currentPage: 'lunch',
-  currentRestaurant: null,
+  currentRestaurant: {},
   showFullMap: false,
-  mapToggled: false,
 };
 
 const TOGGLE_DETAIL = "TOGGLE_DETAIL";
@@ -18,7 +17,7 @@ export default function appReducer(state = initialState, action) {
       return { ...state, showDetail: action.payload === false ? action.payload : !state.showDetail };
 
     case TOGGLE_FULL_MAP:
-      return { ...state, showFullMap: action.payload === false ? action.payload : !state.showFullMap, mapToggled: true };
+      return { ...state, showFullMap: action.payload === false ? action.payload : !state.showFullMap };
 
     case CHANGE_ROUTE:
       return { ...state, currentPage: action.payload, showDetail: false };

@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import GoogleMapReact from 'google-map-react';
 import RestaurantInfoMarker from './RestaurantInfoMarker';
 
-class RestaurantShow extends Component {
+class RestaurantShow extends PureComponent {
   state = {
     center: {
       lat: 0,
@@ -11,21 +11,28 @@ class RestaurantShow extends Component {
     zoom: 13,
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     const { restaurant } = this.props;
 
-    this.setState({
-      center: {
-        lat: restaurant.location.lat,
-        lng: restaurant.location.lng,
-      }
-    })
+    if (restaurant.location) {
+      this.setState(prevState => {
+        if (
+          prevState.center.lat !== restaurant.location.lat ||
+          prevState.center.lng !== restaurant.location.lng
+        ) {
+          return {
+            center: {
+              lat: restaurant.location.lat,
+              lng: restaurant.location.lng,
+            }
+          }
+        }
+      })
+    }
   }
 
   render() {
     const { restaurant, showDetail } = this.props;
-
-    const { contact } = restaurant;
 
     return (
       <div className={`restaurant-content-container ${showDetail ? 'active' : ''}`}>
@@ -47,16 +54,18 @@ class RestaurantShow extends Component {
         </section>
 
         <section className="restaurant-detail-container">
-          <p>
-            {restaurant.location.address}
-            <br />
-            {restaurant.location.formattedAddress[1]}
-          </p>
-          {contact ? (
+          {restaurant.location && (
+            <p>
+              {restaurant.location.address}
+              <br />
+              {restaurant.location.formattedAddress[1]}
+            </p>
+          )}
+          {restaurant.contact ? (
             <Fragment>
-              <p>{contact.formattedPhone || 'No Contact Found'}</p>
-              {contact.twitter && <p>@{contact.twitter}</p>}
-              {contact.facebookName && <p>@{contact.facebookName}</p>}
+              <p>{restaurant.contact.formattedPhone || 'No Contact Found'}</p>
+              {restaurant.contact.twitter && <p>@{restaurant.contact.twitter}</p>}
+              {restaurant.contact.facebookName && <p>@{restaurant.contact.facebookName}</p>}
             </Fragment>
           ) : <p>No contact info</p>}
         </section>

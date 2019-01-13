@@ -5,21 +5,10 @@
   top: 60px;
   z-index: 90;
   background-color: #FFF;
-  animation: slide_right 0.3s ease-in-out 1 forwards; }
-
-@keyframes slide_left {
-  0% {
-    transform: translateX(100%); }
-  100% {
-    transform: translate(0%); } }
-
-@keyframes slide_right {
-  0% {
-    transform: translate(0%); }
-  100% {
-    transform: translateX(100%); } }
+  transform: translateX(100%);
+  transition: 0.3s ease-in-out; }
   .restaurant-content-container.active {
-    animation: slide_left 0.3s ease-in-out 1 forwards; }
+    transform: translateX(0%); }
   .restaurant-content-container .map-placeholder {
     width: 100%;
     height: 180px; }
@@ -48,14 +37,7 @@
 @media (min-width: 1024px) {
   .restaurant-content-container {
     width: calc(100% - 300px);
-    min-height: calc(100vh - 60px); }
-  @keyframes slide_left {
-    0% {
-      transform: translateX(calc(100% + 300px)); }
-    100% {
-      transform: translate(300px); } }
-  @keyframes slide_right {
-    0% {
-      transform: translate(300px); }
-    100% {
-      transform: translateX(calc(100% + 300px)); } } }
+    min-height: calc(100vh - 60px);
+    transform: translateX(calc(100% + 300px)); }
+    .restaurant-content-container.active {
+      transform: translateX(300px); } }

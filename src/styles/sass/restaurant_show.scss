@@ -7,13 +7,11 @@
   top: 60px;
   z-index: 90;
   background-color: #FFF;
-  animation: slide_right 0.3s ease-in-out 1 forwards;
-
-  @include slide_left;
-  @include slide_right;
+  transform: translateX(100%);
+  transition: 0.3s ease-in-out;
 
   &.active {
-    animation: slide_left 0.3s ease-in-out 1 forwards;
+    transform: translateX(0%);
   }
 
   .map-placeholder {
@@ -59,23 +57,10 @@
   .restaurant-content-container {
     width: calc(100% - 300px);
     min-height: calc(100vh - 60px);
-  }
+    transform: translateX(calc(100% + 300px));
 
-  @keyframes slide_left {
-    0% {
-      transform: translateX(calc(100% + 300px));
-    }
-    100% {
-      transform: translate(300px);
-    }
-  }
-  
-  @keyframes slide_right {
-    0% {
-      transform: translate(300px);
-    }
-    100% {
-      transform: translateX(calc(100% + 300px));
+    &.active {
+      transform: translateX(300px);
     }
   }
 }
