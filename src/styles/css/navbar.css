@@ -10,6 +10,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center; }
+  @media (min-width: 1024px) {
+    .navbar-container {
+      display: none; } }
   .navbar-container .navbar-item {
     display: flex;
     flex-direction: column;

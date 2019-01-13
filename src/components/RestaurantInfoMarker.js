@@ -9,7 +9,6 @@ class RestaurantInfoMarker extends Component {
     const { showInfoMarker } = this.state;
     this.setState({ showInfoMarker: !showInfoMarker });
   }
-
   render () {
     const { lat, lng } = this.props;
 

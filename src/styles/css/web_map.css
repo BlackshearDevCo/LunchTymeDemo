@@ -1,0 +1,30 @@
+.web-map {
+  width: 100vw;
+  height: calc(100vh - 110px);
+  position: fixed;
+  top: 60px;
+  right: 0;
+  z-index: 100;
+  transform: translateX(100vw);
+  animation: slide_right 0.3s ease-in-out 1 forwards;
+  overflow: hidden; }
+  .web-map.active {
+    animation: slide_left 0.3s ease-in-out 1 forwards; }
+
+@keyframes slide_left {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translate(0%); } }
+
+@keyframes slide_right {
+  0% {
+    transform: translate(0%); }
+  100% {
+    transform: translateX(100%); } }
+  @media (min-width: 1024px) {
+    .web-map {
+      z-index: 0;
+      display: block;
+      height: calc(100vh - 60px);
+      width: calc(100vw - 300px); } }

@@ -9,6 +9,11 @@
 .content-container {
   margin-top: 60px;
   margin-bottom: 50px;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 110px);
   overflow: auto;
-  position: relative; }
+  position: relative;
+  background-color: #eaeaea; }
+  @media (min-width: 1024px) {
+    .content-container {
+      margin-bottom: 0px;
+      min-height: calc(100vh - 60px); } }

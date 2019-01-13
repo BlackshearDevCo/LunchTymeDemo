@@ -2,8 +2,8 @@
 
 .restaurant-preview-list {
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
+  flex-wrap: wrap;
 
   .restaurant-preview-container {
     color: #FFF;
@@ -15,6 +15,10 @@
     justify-content: flex-start;
     align-items: flex-end;
     overflow: hidden;
+
+    @media(min-width: 425px) {
+      height: 220px;
+    }
 
     .restaurant-image {
       position: absolute;
@@ -51,6 +55,28 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+    }
+  }
+}
+
+@media(min-width: 575px) {
+  .restaurant-preview-list{
+    .restaurant-preview-container {
+      width: 50%;
+      height: 180px;
+    }
+  }
+}
+
+@media(min-width: 1024px) {
+  .restaurant-preview-list {
+    max-width: 300px;
+    box-shadow: 3px 0px 20px #5d5d5d42;
+    position: relative;
+    z-index: 1;
+
+    .restaurant-preview-container {
+      width: 100%;
     }
   }
 }

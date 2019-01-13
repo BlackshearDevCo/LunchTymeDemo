@@ -13,6 +13,7 @@ import './styles/css/navbar.css';
 import './styles/css/restaurant_preview.css';
 import './styles/css/restaurant_show.css';
 import './styles/css/restaurant_info_marker.css';
+import './styles/css/web_map.css';
 
 class App extends Component {
   componentDidMount() {

@@ -1,0 +1,27 @@
+@import './mixins.scss';
+
+.web-map {
+  width: 100vw;
+  height: calc(100vh - 110px);
+  position: fixed;
+  top: 60px;
+  right: 0;
+  z-index: 100;
+  transform: translateX(100vw);
+  animation: slide_right 0.3s ease-in-out 1 forwards;
+  overflow: hidden;
+  
+  &.active {
+    animation: slide_left 0.3s ease-in-out 1 forwards;
+  }
+  
+  @include slide_left;
+  @include slide_right;
+  
+  @media(min-width: 1024px) {
+    z-index: 0;
+    display: block;
+    height: calc(100vh - 60px);
+    width: calc(100vw - 300px);
+  }
+}

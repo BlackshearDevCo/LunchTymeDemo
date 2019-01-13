@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeRoute } from '../redux/reducers/appReducer';
+import { changeRoute, toggleFullMap } from '../redux/reducers/appReducer';
 import map_icon from '../images/icon_map@2x.png';
 import web_back from '../images/ic_webBack@2x.png';
 import web_forward from '../images/ic_webForward@2x.png';
@@ -18,12 +18,20 @@ function Header({ appReducer, dispatch }) {
       </section>
       <img
         className={`web-back-icon back-to-list ${showDetail ? 'active' : ''}`}
-        onClick={() => dispatch(changeRoute('lunch'))}
+        onClick={() => {
+          dispatch(changeRoute('lunch'))
+          dispatch(toggleFullMap(false))
+        }}
         src={web_back}
         alt="map-icon"
       />
       <h1 className="header-title">Lunch Tyme</h1>
-      <img className="map-icon" src={map_icon} alt="map-icon" />
+      <img
+        className="map-icon"
+        onClick={() => dispatch(toggleFullMap())}
+        src={map_icon}
+        alt="map-icon"
+      />
     </div>
   )
 }

@@ -3,3 +3,25 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@mixin slide-left {
+  @keyframes slide_left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translate(0%);
+    }
+  }
+}
+
+@mixin slide-right {
+  @keyframes slide_right {
+    0% {
+      transform: translate(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

@@ -11,6 +11,10 @@
   justify-content: space-around;
   align-items: center;
 
+  @media(min-width: 1024px) {
+    display: none;
+  }
+
   .navbar-item {
     display: flex;
     flex-direction: column;

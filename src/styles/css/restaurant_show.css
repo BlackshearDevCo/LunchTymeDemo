@@ -6,12 +6,23 @@
   z-index: 90;
   background-color: #FFF;
   animation: slide_right 0.3s ease-in-out 1 forwards; }
+
+@keyframes slide_left {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translate(0%); } }
+
+@keyframes slide_right {
+  0% {
+    transform: translate(0%); }
+  100% {
+    transform: translateX(100%); } }
   .restaurant-content-container.active {
     animation: slide_left 0.3s ease-in-out 1 forwards; }
   .restaurant-content-container .map-placeholder {
     width: 100%;
-    height: 180px;
-    background-color: #333; }
+    height: 180px; }
   .restaurant-content-container .restaurant-info-stripe {
     width: 100%;
     background-color: #34B379;
@@ -34,14 +45,17 @@
       .restaurant-content-container .restaurant-detail-container p + p {
         padding-top: 20px; }
 
-@keyframes slide_left {
-  0% {
-    transform: translateX(100%); }
-  100% {
-    transform: translate(0%); } }
-
-@keyframes slide_right {
-  0% {
-    transform: translate(0%); }
-  100% {
-    transform: translateX(100%); } }
+@media (min-width: 1024px) {
+  .restaurant-content-container {
+    width: calc(100% - 300px);
+    min-height: calc(100vh - 60px); }
+  @keyframes slide_left {
+    0% {
+      transform: translateX(calc(100% + 300px)); }
+    100% {
+      transform: translate(300px); } }
+  @keyframes slide_right {
+    0% {
+      transform: translate(300px); }
+    100% {
+      transform: translateX(calc(100% + 300px)); } } }

@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import RestaurantPreview from '../components/RestaurantPreview';
 import RestaurantShow from '../components/RestaurantShow';
-import { connect } from 'react-redux';
+import WebMap from '../components/WebMap';
 
 function Home({ restaurants, appReducer }) {
-  const { currentRestaurant, showDetail } = appReducer;
+  const { currentRestaurant, showDetail, showFullMap, mapToggled } = appReducer;
   const restaurantList = restaurants.map((restaurant, ind) => (
     <RestaurantPreview restaurant={restaurant} key={ind} />
   ))
@@ -15,6 +16,7 @@ function Home({ restaurants, appReducer }) {
         {restaurantList}
       </div>
       {currentRestaurant && <RestaurantShow showDetail={showDetail} restaurant={currentRestaurant} />}
+      {((showFullMap && restaurants[0]) || mapToggled) && <WebMap showFullMap={showFullMap} />}
     </Fragment>
   )
 }
