@@ -28,6 +28,7 @@ function WebMap({ restaurantsReducer, showFullMap, showDetail, dispatch }) {
         {restaurantsReducer.map((restaurant, ind) => (
           <RestaurantInfoMarker
             key={ind}
+            restaurant={restaurant}
             lat={restaurant.location.lat}
             lng={restaurant.location.lng}
           />
@@ -35,7 +36,7 @@ function WebMap({ restaurantsReducer, showFullMap, showDetail, dispatch }) {
       </GoogleMapReact>
       {showDetail && (
         <div
-          className={`map-overlay ${showDetail ? 'active' : ''}`}
+          className="map-overlay"
           onClick={() => dispatch(toggleDetail(false))}
         />
       )}

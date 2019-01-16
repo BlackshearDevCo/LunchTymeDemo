@@ -1,8 +1,10 @@
-.restaurant-info-marker .lunchtyme-logo {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("../../images/LunchTyme-logo.png");
-  width: 25px;
-  height: 25px;
-  transform: translate(-50%, -50%); }
+.restaurant-info-marker {
+  position: relative; }
+  .restaurant-info-marker .lunchtyme-logo {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../images/LunchTyme-logo.png");
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%); }

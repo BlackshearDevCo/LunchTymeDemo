@@ -1,3 +1,15 @@
+.restaurant-preview-gradient {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: url("../../images/cellGradientBackground@2x.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
 .restaurant-preview-list {
   display: flex;
   justify-content: flex-start;
@@ -33,17 +45,6 @@
       .restaurant-preview-list .restaurant-preview-container .restaurant-info .restaurant-preview-category {
         font-size: 1.2rem;
         font-weight: 500; }
-    .restaurant-preview-list .restaurant-preview-container .restaurant-preview-gradient {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      background-image: url("../../images/cellGradientBackground@2x.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat; }
 
 @media (min-width: 575px) {
   .restaurant-preview-list .restaurant-preview-container {

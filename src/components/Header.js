@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeRoute, toggleFullMap } from '../redux/reducers/appReducer';
+import { changeRoute, toggleFullMap, toggleDetail } from '../redux/reducers/appReducer';
 import map_icon from '../images/icon_map@2x.png';
 import web_back from '../images/ic_webBack@2x.png';
 import web_forward from '../images/ic_webForward@2x.png';
@@ -28,7 +28,10 @@ function Header({ appReducer, dispatch }) {
       <h1 className="header-title">Lunch Tyme</h1>
       <img
         className="map-icon"
-        onClick={() => dispatch(toggleFullMap())}
+        onClick={() => {
+          dispatch(toggleFullMap());
+          dispatch(toggleDetail(false));
+        }}
         src={map_icon}
         alt="map-icon"
       />

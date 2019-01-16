@@ -1,6 +1,7 @@
 @import './mixins';
 
 .restaurant-info-marker {
+  position: relative;
   .lunchtyme-logo {
     @include contain-background;
     background-image: url('../../images/LunchTyme-logo.png');

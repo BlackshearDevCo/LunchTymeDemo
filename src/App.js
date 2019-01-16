@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './components/Header';
-import Navbar from './components/Navbar';
 import Home from './containers/Home';
 import Internets from './containers/Internets';
 import { getRestaurants } from './redux/reducers/restaurantsReducer';
@@ -14,6 +13,7 @@ import './styles/css/restaurant_preview.css';
 import './styles/css/restaurant_show.css';
 import './styles/css/restaurant_info_marker.css';
 import './styles/css/web_map.css';
+import './styles/css/restaurant_tooltip.css';
 
 class App extends Component {
   componentDidMount() {
@@ -30,7 +30,6 @@ class App extends Component {
         <section className="content-container">
           {appReducer.currentPage === 'lunch' ? <Home /> : <Internets />}
         </section>
-        <Navbar />
       </div>
     );
   }

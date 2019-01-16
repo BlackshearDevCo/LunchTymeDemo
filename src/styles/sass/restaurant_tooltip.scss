@@ -1,0 +1,38 @@
+@media(max-width: 1024px) {
+  .tool-tip-container {
+    display: none;
+  }  
+} 
+
+.tool-tip-container {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  clip-path: polygon(100% 0, 100% 90%, 60% 90%, 50% 100%, 39% 90%, 0 90%, 0 0);
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -40%);
+  z-index: 10;
+  
+  .tool-tip-content {
+    color: white;
+    text-align: left;
+    padding: 10px;
+    padding-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    
+    h3 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    p {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+  }
+}
