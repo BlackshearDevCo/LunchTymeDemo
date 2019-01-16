@@ -14,7 +14,8 @@ const CHANGE_RESTAURANT = "CHANGE_RESTAURANT";
 export default function appReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_DETAIL:
-      return { ...state, showDetail: action.payload === false ? action.payload : !state.showDetail };
+      console.log(action.payload);
+      return { ...state, showDetail: typeof action.payload === 'boolean' ? action.payload : !state.showDetail };
 
     case TOGGLE_FULL_MAP:
       return { ...state, showFullMap: action.payload === false ? action.payload : !state.showFullMap };

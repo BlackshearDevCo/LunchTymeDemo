@@ -16,7 +16,12 @@ function Home({ restaurants, appReducer }) {
         {restaurantList}
       </div>
       <RestaurantShow showDetail={showDetail} restaurant={currentRestaurant} />
-      {restaurants[0] && <WebMap showFullMap={showFullMap} />}
+      {restaurants[0] && (
+        <WebMap
+          showFullMap={showFullMap}
+          showDetail={showDetail}
+        />
+      )}
     </Fragment>
   )
 }

@@ -16,6 +16,10 @@
     align-items: flex-end;
     overflow: hidden;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media(min-width: 425px) {
       height: 220px;
     }

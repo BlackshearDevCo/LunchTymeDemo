@@ -12,6 +12,8 @@
     justify-content: flex-start;
     align-items: flex-end;
     overflow: hidden; }
+    .restaurant-preview-list .restaurant-preview-container:hover {
+      cursor: pointer; }
     @media (min-width: 425px) {
       .restaurant-preview-list .restaurant-preview-container {
         height: 220px; } }

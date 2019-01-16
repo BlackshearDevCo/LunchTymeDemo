@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import RestaurantInfoMarker from './RestaurantInfoMarker';
+import { toggleDetail } from '../redux/reducers/appReducer';
 
-function WebMap({ restaurantsReducer, showFullMap }) {
+function WebMap({ restaurantsReducer, showFullMap, showDetail, dispatch }) {
   const getMapCenter = () => {
     let sumOfLat = 0;
     let sumOfLng = 0;
@@ -32,6 +33,12 @@ function WebMap({ restaurantsReducer, showFullMap }) {
           />
         ))}
       </GoogleMapReact>
+      {showDetail && (
+        <div
+          className={`map-overlay ${showDetail ? 'active' : ''}`}
+          onClick={() => dispatch(toggleDetail(false))}
+        />
+      )}
     </div>
   )
 }

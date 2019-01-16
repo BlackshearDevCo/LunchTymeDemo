@@ -18,7 +18,7 @@ function RestaurantPreview({ restaurant, dispatch }) {
         className="restaurant-preview-gradient"
         onClick={() => {
           dispatch(changeRestaurant(restaurant))
-          dispatch(toggleDetail())
+          dispatch(toggleDetail(true))
         }}
       />
     </div>

@@ -55,12 +55,12 @@
 
 @media(min-width: 1024px) {
   .restaurant-content-container {
-    width: calc(100% - 300px);
+    width: calc(300px);
     min-height: calc(100vh - 60px);
-    transform: translateX(calc(100% + 300px));
+    transform: translateX(100vw);
 
     &.active {
-      transform: translateX(300px);
+      transform: translateX(calc(100vw - 300px));
     }
   }
 }
